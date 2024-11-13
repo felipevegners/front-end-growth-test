@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@layer base {
+  @font-face {
+    font-family: "ArticulatCF-Normal";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(../fonts/ArticulatCF-Normal.otf) format("otf");
+  }
+
+  @font-face {
+    font-family: "ArticulatCF-Medium";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(../fonts/ArticulatCF-Medium.otf) format("otf");
+  }
+}
