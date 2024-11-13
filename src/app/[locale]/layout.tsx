@@ -4,9 +4,10 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-
-import "@/app/global.css";
 import NavBar from "./_sections/Navbar";
+import Footer from "./_sections/Footer";
+import localesConfig from "../locales.config.json";
+import "@/app/global.css";
 
 export const metadata: Metadata = {
   title: "Moises",
@@ -24,16 +25,21 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  const data = await getMessages();
+  const globalConfig = await getMessages();
 
-  const { menu } = data.global;
+  const { availableLocales } = localesConfig;
 
+  // Como tipar um destructing?
+  const { menu, footerMenu, social, helpText, copyright } = globalConfig.global;
   return (
     <html lang={locale}>
-      <body className="bg-black bg-hero-section bg-contain bg-right-top bg-no-repeat">
-        <NextIntlClientProvider messages={data}>
+      <body>
+        <NextIntlClientProvider messages={globalConfig}>
           <NavBar data={menu} />
           {children}
+          <Footer
+            data={{ footerMenu, social, availableLocales, helpText, copyright }}
+          />
         </NextIntlClientProvider>
       </body>
     </html>

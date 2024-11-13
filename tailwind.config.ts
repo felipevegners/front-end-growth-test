@@ -18,8 +18,13 @@ const config: Config = {
       body: ['"ArticulatCF-Normal", sans-serif']
     },
     extend: {
-      backgroundImage: {
-        "hero-section": "url('/bg-moises-developer.svg')"
+      colors: {
+        "mai-blue": "#1040ff",
+        "mai-medium-blue": "#75A5FF",
+        "mai-gray": "#858585",
+        "mai-medium-gray": "#A8A8A8",
+        "mai-dark-gray": "#212121",
+        "mai-turqouise": "#0AFFA7"
       }
     }
   },

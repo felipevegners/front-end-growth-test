@@ -1,0 +1,14 @@
+{
+  "availableLocales": [
+    {
+      "id": 1,
+      "language": "English",
+      "locale": "en"
+    },
+    {
+      "id": 2,
+      "language": "Português",
+      "locale": "pt"
+    }
+  ]
+}

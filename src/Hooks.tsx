@@ -5,7 +5,7 @@ export function useFilterSectionContent(data, section) {
 
   useEffect(() => {
     async function filterContent() {
-      const filteredContent = await data?.filter(
+      const filteredContent = await data?.contentSections.filter(
         (content) => content.__component === section
       );
       setSectionData(filteredContent);

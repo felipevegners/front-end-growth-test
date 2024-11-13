@@ -1,12 +1,11 @@
 "use client";
-import { useMessages, useTranslations } from "next-intl";
+import { useMessages } from "next-intl";
 import HeroVideo from "./_sections/HeroVideo";
 import Brands from "./_sections/Brands";
 import CardContentGrid from "./_sections/CardContentGrid";
 import Modules from "./_sections/Modules";
 import CallToAction from "./_sections/CallToAction";
 import { useFilterSectionContent } from "@/Hooks";
-// import { Link } from "@/i18n/routing";
 
 export default function HomePage() {
   const contentData = useMessages();
@@ -14,15 +13,26 @@ export default function HomePage() {
   return (
     <>
       <HeroVideo
+        data={useFilterSectionContent(contentData.pages, "sections.hero-video")}
+      />
+      <Brands
+        data={useFilterSectionContent(contentData.pages, "sections.brands")}
+      />
+      <CardContentGrid
         data={useFilterSectionContent(
-          contentData.pages.contentSections,
-          "sections.hero-video"
+          contentData.pages,
+          "sections.card-content-grid"
         )}
       />
-      <Brands />
-      <CardContentGrid />
-      <Modules />
-      <CallToAction />
+      <Modules
+        data={useFilterSectionContent(contentData.pages, "sections.modules")}
+      />
+      <CallToAction
+        data={useFilterSectionContent(
+          contentData.pages,
+          "sections.centered-cta"
+        )}
+      />
     </>
   );
 }
