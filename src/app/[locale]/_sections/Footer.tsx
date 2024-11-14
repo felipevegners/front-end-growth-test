@@ -1,9 +1,6 @@
 "use client";
 import * as React from "react";
 import Image from "next/image";
-// import logo from "../../../../assets/logo_developer.svg";
-// import selectArrow from "../../../../assets/ic-chevron-down.svg";
-import { Link } from "@/i18n/routing";
 import { SocialLogos } from "../_components/SocialLogos";
 import { FooterMenu } from "../_components/FooterMenu";
 
