@@ -3,7 +3,7 @@ const url = require("url");
 const fs = require("fs");
 const hostname = "127.0.0.1";
 require("dotenv").config();
-const port = process.env.PORT;
+const port = process.env.PORT || 4000;
 
 const payload = JSON.parse(
   fs.readFileSync("./server/payload.json", { encoding: "utf8" })
