@@ -1,8 +1,6 @@
 import * as React from "react";
 import Image from "next/image";
 import playIcon from "../../../../assets/play.svg";
-import songWave from "../../../../assets/song-wave.svg";
-import arrowRight from "../../../../assets/ic-arrow-right.svg";
 
 interface IHeroVideoProps {
   data: {
@@ -25,6 +23,8 @@ interface IHeroVideoProps {
     ];
     demo: {
       title: string;
+      helpText: string;
+      uploadText: string;
       url: string;
       format: string;
     };
@@ -33,36 +33,39 @@ interface IHeroVideoProps {
 
 const HeroVideo: React.FunctionComponent<IHeroVideoProps> = ({ data }) => {
   return (
-    <section className="z-0">
-      <div className="absolute top-0 select-none pointer-events-none w-full h-full -z-10 bg-black">
-        {data?.background.url && (
-          <Image
-            src={data?.background.url}
-            alt=""
-            priority
-            width={data?.background.width}
-            height={data?.background.height}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
-        )}
-      </div>
+    <section className="px-6 py-20 md:px-20 z-0">
+      <div
+        className="w-full h-full absolute left-0 top-0 -z-50 bg-right-top bg-[size:1020px] md:bg-[size:1440px] bg-no-repeat"
+        style={{
+          backgroundImage: `url('${data?.background.url}')`
+        }}
+      ></div>
       <div className="relative isolate">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-[600px]">
           <div className="text-center">
-            <h1 className="text-5xl font-semi-bold text-white sm:text-7xl">
+            <h1 className="text-5xl font-semi-bold text-white sm:text-[52px]">
               {data?.title}
             </h1>
-            <p className="my-10 text-pretty text-lg font-medium text-[#858585] sm:text-xl/8">
+            <p className="my-10 text-pretty text-lg font-medium text-[#858585]">
               {data?.description}
             </p>
             <div>
-              <p className="mb-3 text-[#858585] text-xs text-left">Try now</p>
-              <MusicPlayer />
+              <p className="mb-3 text-[#858585] text-xs text-left">
+                {data?.demo.helpText}
+              </p>
+              <MusicPlayer uploadText={data?.demo.uploadText} />
+              <audio
+                className="appearance-none"
+                controls
+                src={data?.demo.url}
+              />
             </div>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               {data?.buttons.map((button) => (
                 <a
                   key={button.text}
+                  href={button.url}
+                  target={button.newTab ? "_blank" : "self"}
                   className={`
                     flex
                     px-6
@@ -79,7 +82,9 @@ const HeroVideo: React.FunctionComponent<IHeroVideoProps> = ({ data }) => {
                   {button?.text}
                   {button.endIcon === "arrow-right" ? (
                     <Image
-                      src={arrowRight}
+                      src="/assets/ic-arrow-right.svg"
+                      width={24}
+                      height={24}
                       alt={button.text}
                       className="ml-2 w-6 h-6"
                     />
@@ -98,20 +103,28 @@ const HeroVideo: React.FunctionComponent<IHeroVideoProps> = ({ data }) => {
 
 export default HeroVideo;
 
-function MusicPlayer() {
+function MusicPlayer({ uploadText }: any) {
   return (
     <div className="p-3 flex items-center justify-between border border-[color:#262626] rounded-md">
-      <Image src={playIcon} alt="Play" className="cursor-pointer" />
-      <div className="mr-3">
-        <Image src={songWave} alt="" className="mx-3 h-auto" />
-      </div>
+      <Image
+        src="/assets/play.svg"
+        width={52}
+        height={52}
+        alt="Play"
+        className="cursor-pointer"
+      />
+      <div
+        className="mx-3 text-white w-[169px] h-[52px] md:w-[387px] "
+        style={{
+          backgroundImage: "url('/assets/song-wave.svg')"
+        }}
+      ></div>
       <a
         href="#"
         className="px-3 border-l border-[color:#262626] w-[110px] block text-white text-sm cursor-pointer select-none"
       >
-        Upload your own track
+        {uploadText}
       </a>
-      {/* <audio controls src={data?.demo.url} /> */}
     </div>
   );
 }

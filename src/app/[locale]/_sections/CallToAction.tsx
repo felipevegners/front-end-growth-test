@@ -26,14 +26,16 @@ const CallToAction: React.FunctionComponent<ICallToActionProps> = ({
   data
 }) => {
   return (
-    <section className="bg-black md:bg-mai-dark-gray">
-      <div className="flex flex-col items-center">
+    <section className="mt-20 px-6 bg-black md:bg-mai-dark-gray md:py-20">
+      <div className="flex flex-col items-center md:max-w-[742px] md:mx-auto">
         {data?.preTitle && (
           <h3 className="mb-3 text-mai-medium-blue text-sm text-center">
             {data?.preTitle}
           </h3>
         )}
-        <h2 className="mb-5 text-white text-4xl text-center">{data?.title}</h2>
+        <h2 className="mb-5 text-white text-4xl md:text-5xl text-center break-inside-auto">
+          {data?.title}
+        </h2>
         <p className="mb-10 text-mai-gray text-lg text-center">
           {data?.description}
         </p>

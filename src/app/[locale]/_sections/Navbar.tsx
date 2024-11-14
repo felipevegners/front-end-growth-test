@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 import * as React from "react";
 import logo from "../../../../assets/logo_developer.svg";
-import arrowRight from "../../../../assets/ic-arrow-right.svg";
 import Image from "next/image";
 import {
   Disclosure,
@@ -42,7 +41,12 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ data }) => {
           <div className="relative flex h-20 md:h-24 items-center justify-between">
             <div className="flex flex-0 items-center justify-center sm:items-stretch sm:justify-center">
               <div className="flex shrink-0 items-center">
-                <Image src={logo} alt={t("siteName")} height={21} />
+                <Image
+                  src="/assets/logo_developer.svg"
+                  alt={t("siteName")}
+                  width={104}
+                  height={21}
+                />
               </div>
             </div>
             <div className="hidden sm:ml-6 sm:block md:w-full md:flex">
@@ -80,7 +84,13 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ data }) => {
                 <a href="/Login" target="_blank" className="text-white">
                   Login
                 </a>
-                <Image src={arrowRight} alt="Login" className="ml-2 w-6 h-6" />
+                <Image
+                  src="/assets/ic-arrow-right.svg"
+                  alt="Login"
+                  width={24}
+                  height={24}
+                  className="ml-2 w-6 h-6"
+                />
               </div>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
@@ -114,7 +124,9 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ data }) => {
                   {item.title}
                   {item.title === "Login" ? (
                     <Image
-                      src={arrowRight}
+                      src="/assets/ic-arrow-right.svg"
+                      width={24}
+                      height={24}
                       alt={item.title}
                       className="ml-2 w-6 h-6"
                     />

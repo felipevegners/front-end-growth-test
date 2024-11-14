@@ -17,11 +17,10 @@ interface IFooterMenuProps {
   ];
 }
 export function FooterMenu({ data }: IFooterMenuProps) {
-  console.log("Data Footer Menu -> ", data);
   return (
-    <nav className="flex flex-col sm:flex-row gap-8 lg:ml-auto">
+    <nav className="flex flex-col sm:flex-row gap-8 md:gap-10 lg:ml-auto">
       {data?.map((menu) => (
-        <div>
+        <div key={menu.title} className="md:flex md:flex-col md:min-w-[160px]">
           <h3 className="mb-4 text-white text-sm opacity-40 uppercase">
             {menu.title}
           </h3>

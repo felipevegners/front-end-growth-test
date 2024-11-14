@@ -490,6 +490,8 @@
           "demo": {
             "id": 1,
             "title": "Demo",
+            "helpText": "Try now",
+            "uploadText": "Upload your own track",
             "url": "https://storage.googleapis.com/moises-cms-music-ai/arise_moises_d5eb0e7c9f/arise_moises_d5eb0e7c9f.wav",
             "format": "audio/wav"
           },
@@ -787,6 +789,8 @@
           "demo": {
             "id": 1,
             "title": "Demo",
+            "helpText": "Teste agora",
+            "uploadText": "Envie sua trilha",
             "url": "https://storage.googleapis.com/moises-cms-music-ai/arise_moises_d5eb0e7c9f/arise_moises_d5eb0e7c9f.wav",
             "format": "audio/wav"
           },

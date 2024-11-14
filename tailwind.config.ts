@@ -25,6 +25,9 @@ const config: Config = {
         "mai-medium-gray": "#A8A8A8",
         "mai-dark-gray": "#212121",
         "mai-turqouise": "#0AFFA7"
+      },
+      backgroundImage: {
+        "song-wave": "url('/assets/song-wave.svg')"
       }
     }
   },
