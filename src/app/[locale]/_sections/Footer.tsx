@@ -3,16 +3,17 @@ import * as React from "react";
 import Image from "next/image";
 import { SocialLogos } from "../_components/SocialLogos";
 import { FooterMenu } from "../_components/FooterMenu";
+import localesConfig from "../../locales.config.json";
 
 interface IFooterProps {
   data: {
-    availableLocales: [
-      {
-        id: number;
-        language: string;
-        locale: string;
-      }
-    ];
+    // availableLocales: [
+    //   {
+    //     id: number;
+    //     language: string;
+    //     locale: string;
+    //   }
+    // ];
     helpText: string;
     copyright: string;
     social: Record<string, string>;
@@ -35,6 +36,8 @@ interface IFooterProps {
   };
 }
 
+const { availableLocales } = localesConfig;
+
 const Footer: React.FunctionComponent<IFooterProps> = ({ data }) => {
   return (
     <section className="mt-20 px-6 pb-20 bg-black ">
@@ -54,7 +57,7 @@ const Footer: React.FunctionComponent<IFooterProps> = ({ data }) => {
               className="relative appearance-none bg-mai-dark-gray px-4 py-2 text-mai-medium-gray rounded-md w-full h-11"
               name="locale"
             >
-              {data?.availableLocales?.map((locale) => (
+              {availableLocales?.map((locale) => (
                 <option key={locale.id} value={locale.locale}>
                   {locale.language}
                 </option>
