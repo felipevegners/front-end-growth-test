@@ -1,6 +1,5 @@
 import * as React from "react";
 import Image from "next/image";
-import playIcon from "../../../../assets/play.svg";
 
 interface IHeroVideoProps {
   data: {
@@ -54,11 +53,11 @@ const HeroVideo: React.FunctionComponent<IHeroVideoProps> = ({ data }) => {
                 {data?.demo.helpText}
               </p>
               <MusicPlayer uploadText={data?.demo.uploadText} />
-              <audio
+              {/* <audio
                 className="appearance-none"
                 controls
                 src={data?.demo.url}
-              />
+              /> */}
             </div>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               {data?.buttons.map((button) => (
