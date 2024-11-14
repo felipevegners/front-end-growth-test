@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import * as React from "react";
-import logo from "../../../../assets/logo_developer.svg";
 import Image from "next/image";
 import {
   Disclosure,
@@ -12,7 +11,6 @@ import {
   XMarkIcon,
   ChevronDownIcon
 } from "@heroicons/react/24/outline";
-
 interface INavBarProps {
   data: [
     {
@@ -49,14 +47,14 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ data }) => {
                 />
               </div>
             </div>
-            <div className="hidden sm:ml-6 sm:block md:w-full md:flex">
-              <div className="flex m-auto space-x-20 items-center">
+            <div className="hidden sm:ml-6 md:w-full md:flex">
+              <ul className="flex m-auto space-x-20 items-center overflow-hidden">
                 {data.slice(0, data.length - 1).map((item) => (
-                  <div key={item.id} className="group relative">
+                  <li key={item.id} className="py-5 group">
                     <a
                       href={item.link as string}
                       target={item.openNewWindow ? "_blank" : "_self"}
-                      className="text-gray-500 hover:text-white cursor-pointer flex items-center"
+                      className="text-gray-500 hover:text-white cursor-pointer flex items-center justify-between"
                     >
                       {item.title}
                       {item.dropdown.length > 0 && (
@@ -64,22 +62,32 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ data }) => {
                       )}
                     </a>
                     {item.dropdown.length > 0 && (
-                      <div className="absolute invisible group-hover:visible flex flex-col p-4 w-60 bg-black z-50">
+                      <div className="p-8 top-20 left-[-16px] absolute invisible group-hover:visible group-hover:translate-y-10 duration-200 grid grid-cols-4 gap-8 md:w-[1250px] bg-mai-dark-gray rounded-lg z-50 transition-all">
                         {item.dropdown.map((sub) => (
                           <a
                             key={sub.id}
                             href={sub.link as string}
                             target={sub.openNewWindow ? "_blank" : "_self"}
-                            className="my-4 text-gray-500 hover:text-white flex"
+                            className="my-4 text-white text-lg flex"
                           >
-                            {sub.title}
+                            <div className="flex gap-4 p-4 hover:bg-[#313131] w-[280px] rounded-md transition-all duration-200">
+                              <div className="bg-white w-12 h-12 rounded-md"></div>
+                              <div>
+                                <h3 className="text-lg text-white">
+                                  {sub.title}
+                                </h3>
+                                <p className="text-mai-medium-gray text-sm">
+                                  Lorem ipsum sit dolot emet.
+                                </p>
+                              </div>
+                            </div>
                           </a>
                         ))}
                       </div>
                     )}
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
               <div className="ml-auto flex items-center">
                 <a href="/Login" target="_blank" className="text-white">
                   Login
@@ -93,7 +101,7 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ data }) => {
                 />
               </div>
             </div>
-            <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
+            <div className="absolute inset-y-0 right-0 flex items-center md:hidden">
               <DisclosureButton className="group relative inline-flex items-center justify-center text-white hover:text-white">
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open main menu</span>

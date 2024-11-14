@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from "react";
-import arrowUp from "../../../../assets/ic-arrow-up.svg";
 import Image from "next/image";
 
 interface IModulesProps {
@@ -27,9 +26,9 @@ const Modules: React.FunctionComponent<IModulesProps> = ({ data }) => {
 
   return (
     <>
-      <section className="mx-auto pt-20 bg-black lg:max-w-[1240px]">
-        <div className="flex">
-          <div className="mb-10">
+      <section className="mx-auto px-6 pt-20 bg-black lg:max-w-[1240px]">
+        <div className="flex md:justify-between lg:max-w-[1140px]">
+          <div className="mb-10 md:max-w-[585px]">
             {data?.preTitle && (
               <h3 className="mb-3 text-mai-medium-blue text-sm text-center">
                 {data?.preTitle}
@@ -38,13 +37,23 @@ const Modules: React.FunctionComponent<IModulesProps> = ({ data }) => {
             <h2 className="mb-3 text-white text-[32px]">{data?.title}</h2>
             <p className="text-lg text-white">{data?.description}</p>
           </div>
-          <div className="hidden md:block">
-            <div className="flex">
-              <div className="bg-white text-black rounded-full p-3 w-6 h-6 flex items-center">
-                {"<"}
+          <div className="hidden md:flex md:items-center">
+            <div className="flex gap-2">
+              <div className="w-11 h-11 flex justify-center bg-white opacity-70 rounded-full cursor-pointer">
+                <Image
+                  src="/icons/arrow-left.svg"
+                  width={14}
+                  height={14}
+                  alt=""
+                />
               </div>
-              <div className="bg-white text-black rounded-full p-3 w-6 h-6 flex items-center">
-                {">"}
+              <div className="w-11 h-11 flex justify-center bg-white rounded-full cursor-pointer">
+                <Image
+                  src="/icons/arrow-right.svg"
+                  width={14}
+                  height={14}
+                  alt=""
+                />
               </div>
             </div>
           </div>

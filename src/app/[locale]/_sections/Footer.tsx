@@ -65,8 +65,8 @@ const Footer: React.FunctionComponent<IFooterProps> = ({ data }) => {
             </select>
             <Image
               src="/assets/ic-chevron-down.svg"
-              width={8}
-              height={8}
+              width={24}
+              height={24}
               alt=""
               className="pointer-events-none select-none absolute top-2 right-2"
             />
@@ -78,8 +78,7 @@ const Footer: React.FunctionComponent<IFooterProps> = ({ data }) => {
         </div>
       </div>
       <div className="md:mx-auto md:max-w-[1240px]">
-        <hr className="md:mb-10 border-white opacity-25" />
-        <div className="flex flex-col gap-4 flex-wrap w-full md:flex-row-reverse md:justify-between">
+        <div className="pt-10 pb-6 flex flex-col gap-4 flex-wrap w-full md:flex-row-reverse md:justify-between border-t border-mai-gray">
           <p className="text-white text-sm opacity-40 inline-flex gap-1 items-center">
             Status
             <span className="mx-1 inline-block bg-mai-turqouise w-2 h-2 rounded-full"></span>
