@@ -47,7 +47,7 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ data }) => {
                 />
               </div>
             </div>
-            <div className="hidden sm:ml-6 md:w-full md:flex">
+            <div className="hidden sm:ml-6 lg:w-full lg:flex">
               <ul className="flex m-auto space-x-20 items-center overflow-hidden">
                 {data.slice(0, data.length - 1).map((item) => (
                   <li key={item.id} className="py-5 group">
@@ -101,7 +101,7 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ data }) => {
                 />
               </div>
             </div>
-            <div className="absolute inset-y-0 right-0 flex items-center md:hidden">
+            <div className="absolute inset-y-0 right-0 flex items-center lg:hidden">
               <DisclosureButton className="group relative inline-flex items-center justify-center text-white hover:text-white">
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open main menu</span>
@@ -118,7 +118,7 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ data }) => {
           </div>
         </div>
         {/* Mobile Menu */}
-        <DisclosurePanel className="sm:hidden absolute px-5 left-0 w-screen h-[calc(100vh-80px)] bg-black z-[100]">
+        <DisclosurePanel className="lg:hidden absolute px-5 pb-40 left-0 w-screen h-screen bg-black z-[100]">
           <div className="pb-10 flex flex-col h-full">
             {data.map((item) => (
               <div key={item.id} className="my-5 last-of-type:mt-auto">
