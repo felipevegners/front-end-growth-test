@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import NavBar from "./_sections/Navbar";
 import Footer from "./_sections/Footer";
-// import localesConfig from "../locales.config.json";
 import "@/app/global.css";
 
 export const metadata: Metadata = {
@@ -28,8 +27,6 @@ export default async function LocaleLayout({
   }
 
   const globalConfig = await getMessages();
-
-  // const { availableLocales } = localesConfig;
 
   const { menu, footerMenu, social, helpText, copyright }: any =
     globalConfig.global;

@@ -11,19 +11,18 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = routing.defaultLocale;
   }
 
-  const globalResponse = await fetch(
-    `http://localhost:4000/global?locale=${locale}`
-  );
-  const globalData = await globalResponse.json();
+  const API_URL = process.env.API_URL;
 
-  const pagesResponse = await fetch(
-    `http://localhost:4000/pages?locale=${locale}`
-  );
+  const pagesResponse = await fetch(`${API_URL}/pages?locale=${locale}`);
   const pagesData = await pagesResponse.json();
+
+  const newGlobalResponse = await fetch(
+    `${API_URL}/global?locale=${locale}`
+  ).then((res) => res.json());
 
   const newMessages = {
     global: {
-      ...globalData
+      ...newGlobalResponse[0]
     },
     pages: {
       ...pagesData[0]

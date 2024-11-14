@@ -22,7 +22,7 @@ const server = http.createServer((req, res) => {
   let data = [];
 
   if (req.url.startsWith("/global")) {
-    data = filterByLocale(payload.global, locale)[0];
+    data = filterByLocale(payload.global, locale);
   }
 
   if (req.url.startsWith("/pages")) {

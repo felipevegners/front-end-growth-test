@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "node server/index.js & next dev --turbopack",
     "build": "next build",
-    "start": "next start & node server/index.js",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
