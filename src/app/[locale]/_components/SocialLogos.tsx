@@ -12,7 +12,7 @@ export function SocialLogos({ data }: ISocialProps) {
       {socialMedias?.map((social, i) => (
         <a key={social} href={links[i]} target="_blank">
           <Image
-            src={`/social/${social}.svg`}
+            src={`/social/${social.toLocaleLowerCase()}.svg`}
             width={24}
             height={24}
             alt=""
